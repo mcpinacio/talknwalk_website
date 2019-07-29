@@ -1,0 +1,135 @@
+body {
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 15px 80px;
+  margin: 0px 0px;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: 1px 1px 14px 0px rgba(0, 0, 0, 0.05);
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+.navigation {
+  width: 40%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.navigation ul li a {
+  font-family: "Comfortaa", cursive;
+  font-weight: 700;
+  color: #19647E;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  width: 10%;
+}
+.logo img {
+  width: 70%;
+}
+
+.content, .hero {
+  padding: 0px 170px;
+}
+
+.hero, .seek, .give, .new {
+  height: 100vh;
+  margin: 0px 0px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hero {
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-image: url(assets/Artboard%206.png);
+  background-size: cover;
+}
+
+.herotext {
+  width: 30%;
+  margin-bottom: 100px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-family: "Comfortaa", cursive;
+  color: #19647E;
+}
+.herotext h1 {
+  margin: 0px 0px;
+  font-weight: 700;
+  font-size: 40px;
+}
+.herotext p {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.download {
+  text-align: right;
+}
+
+button {
+  padding: 20px 20px;
+  background-color: #FEDA4D;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+button:hover {
+  background-color: #FECB05;
+}
+
+.seek, .give, .new {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text {
+  width: 45%;
+}
+.text h2 {
+  font-family: "Comfortaa", cursive;
+  font-size: 30px;
+  color: #8894C3;
+  margin-bottom: 50px;
+}
+.text li {
+  font-family: "Muli", sans-serif;
+  font-size: 20px;
+  color: #404A70;
+  line-height: 30px;
+}
+.text li:not(:last-child) {
+  margin-bottom: 35px;
+}
+
+/*# sourceMappingURL=output.css.map */
