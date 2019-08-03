@@ -1,5 +1,6 @@
-@import url('variables.scss');
-
+/*-------------------------------------------------------*/
+/*----------------------BREAKPOINTS----------------------*/
+/*-------------------------------------------------------*/
 $breakpoints: (
     "phone":        300px,
     "phone-wide":   480px,
@@ -23,20 +24,104 @@ $breakpoints: (
     }
 }
 
-h1, h2, h4, p {
+/*-------------------------------------------------------*/
+/*------------------------VARIABLES----------------------*/
+/*-------------------------------------------------------*/
+$accent-colour: #8894C3;
+$normal-colour: #19647E;
+$yellow: #FEDA4D;
+
+$accent-font: 'Comfortaa', cursive;
+$normal-font: 'Muli', sans-serif;
+
+@mixin accent-bold {
 	font-family: 'Comfortaa', cursive;
+	font-weight: 700;
+}	
+
+
+@mixin normal-font {
+	font-family: 'Muli', sans-serif;
+	font-weight: 400;
+    color: $normal-colour;
 }
 
-h1, h4, p {
-	color: #19647E;
-}
 
 body {  
 padding: 0px 0px;
 margin: 0px 0px;
 }
 
-.full_menu {
+/*-------------------------------------------------------*/
+/*-------------------------TEXT--------------------------*/
+/*-------------------------------------------------------*/
+
+h1, h2, h4, p {
+	@include accent-bold;
+}
+
+h1, h4, p {
+	color: $normal-colour;
+}
+
+h1 {
+	font-size: 28px;
+	font-weight: 700;
+
+	margin: 0px 0px;
+
+	@include mq('tablet'){
+		font-size: 32px;
+	}
+
+	@include mq('desktop'){
+		font-size: 32px;
+		line-height: 45px;
+	}
+}
+
+h2 {
+	font-size: 20px;
+	color: $accent-colour;
+
+	margin-top: 0px;
+	margin-bottom: 20px;
+
+		@include mq('tablet'){
+		font-size: 25px;
+		margin-bottom: 25px;
+		}
+
+		@include mq('desktop'){
+		font-size: 38px;
+		margin-bottom: 30px;
+		}
+}
+
+
+h4 {
+	font-size: 20px;
+	text-align: right;
+}
+
+p {
+	font-size: 14px;
+	line-height: 30px;
+
+	@include mq('tablet'){
+		font-size: 16px;
+	}
+
+	@include mq('desktop'){
+		font-size: 18px;
+	}
+}
+
+/*-------------------------------------------------------*/
+/*------------------------NAV BAR------------------------*/
+/*-------------------------------------------------------*/
+
+.navbar {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
@@ -62,12 +147,13 @@ margin: 0px 0px;
 
 }
 
-ul {
+ul, li {
 	list-style-type: none;
 
 	margin: 0px 0px;
 	padding: 0px 0px;
 }
+
 
 .navigation {
 	display: none;
@@ -81,14 +167,14 @@ ul {
 		justify-content: space-between;
 	}
 
-	ul{
-		width: 100%;
-
+	ul {
 		display: flex;
 		flex-flow: row wrap;
 		align-items: center;
 		justify-content: space-between;
-		
+
+		width: 100%;
+	
 		 li{
 		 	a {
 			font-family: 'Comfortaa', cursive;
@@ -114,6 +200,15 @@ ul {
 		width: 90%;
 	}
 }
+/*-------------------------------------------------------*/
+/*---------------------NAV RESPONSIVE--------------------*/
+/*-------------------------------------------------------*/
+
+
+
+/*-------------------------------------------------------*/
+/*------------------------HERO---------------------------*/
+/*-------------------------------------------------------*/
 
 .content, .hero {
 	padding: 0px 25px;
@@ -168,40 +263,9 @@ ul {
 
 }
 
-h1 {
-	font-size: 28px;
-	font-weight: 700;
-
-	margin: 0px 0px;
-
-	@include mq('tablet'){
-		font-size: 32px;
-	}
-
-	@include mq('desktop'){
-		font-size: 32px;
-		line-height: 45px;
-	}
-}
-
-p {
-	font-size: 14px;
-	line-height: 30px;
-
-	@include mq('tablet'){
-		font-size: 16px;
-	}
-
-	@include mq('desktop'){
-		font-size: 18px;
-	}
-}
-
-h4 {
-	font-size: 20px;
-	text-align: right;
-}
-
+/*-------------------------------------------------------*/
+/*----------------------BUTTONS--------------------------*/
+/*-------------------------------------------------------*/
 .download {
 	text-align: right;
 
@@ -231,6 +295,9 @@ svg {
 	}
 }
 
+/*-------------------------------------------------------*/
+/*------------------------CONTENT------------------------*/
+/*-------------------------------------------------------*/
 .content{
 	background-image: url('assets/content.png');
 	background-position: 70%; 
@@ -270,24 +337,6 @@ svg {
 	}
 
 
-	h2 {
-		font-family: 'Comfortaa', cursive;
-		font-size: 20px;
-		color: #8894C3;
-
-		margin-top: 0px;
-		margin-bottom: 20px;
-
-			@include mq('tablet'){
-			font-size: 25px;
-			margin-bottom: 25px;
-			}
-
-			@include mq('desktop'){
-			font-size: 38px;
-			margin-bottom: 30px;
-			}
-	}
 
 	li {
 		font-family: 'Muli', sans-serif;
@@ -355,6 +404,10 @@ svg {
 	}
 }
 
+/*-------------------------------------------------------*/
+/*------------------------FOOTER-------------------------*/
+/*-------------------------------------------------------*/
+
 footer {
 	width: 100%;
 	height: auto;
@@ -380,7 +433,7 @@ footer {
 	}
 
 	li {
-		font-family: 'Comfortaa', cursive;
+		font-family: $accent-font;
 		font-size: 14px;
 		line-height: 30px;
 		color: white;	

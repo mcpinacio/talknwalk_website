@@ -1,18 +1,86 @@
-@import url("variables.scss");
+/*-------------------------------------------------------*/
+/*----------------------BREAKPOINTS----------------------*/
+/*-------------------------------------------------------*/
+/*-------------------------------------------------------*/
+/*------------------------VARIABLES----------------------*/
+/*-------------------------------------------------------*/
+body {
+  padding: 0px 0px;
+  margin: 0px 0px;
+}
+
+/*-------------------------------------------------------*/
+/*-------------------------TEXT--------------------------*/
+/*-------------------------------------------------------*/
 h1, h2, h4, p {
   font-family: "Comfortaa", cursive;
+  font-weight: 700;
 }
 
 h1, h4, p {
   color: #19647E;
 }
 
-body {
-  padding: 0px 0px;
+h1 {
+  font-size: 28px;
+  font-weight: 700;
   margin: 0px 0px;
 }
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+@media only screen and (min-width: 1248px) {
+  h1 {
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
 
-.full_menu {
+h2 {
+  font-size: 20px;
+  color: #8894C3;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  h2 {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+}
+@media only screen and (min-width: 1248px) {
+  h2 {
+    font-size: 38px;
+    margin-bottom: 30px;
+  }
+}
+
+h4 {
+  font-size: 20px;
+  text-align: right;
+}
+
+p {
+  font-size: 14px;
+  line-height: 30px;
+}
+@media only screen and (min-width: 768px) {
+  p {
+    font-size: 16px;
+  }
+}
+@media only screen and (min-width: 1248px) {
+  p {
+    font-size: 18px;
+  }
+}
+
+/*-------------------------------------------------------*/
+/*------------------------NAV BAR------------------------*/
+/*-------------------------------------------------------*/
+.navbar {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -28,14 +96,14 @@ body {
   box-shadow: 1px 1px 14px 0px rgba(0, 0, 0, 0.05);
 }
 @media only screen and (min-width: 768px) {
-  .full_menu {
+  .navbar {
     height: 40px;
     padding: 15px 80px;
     margin: 0px 0px;
   }
 }
 
-ul {
+ul, li {
   list-style-type: none;
   margin: 0px 0px;
   padding: 0px 0px;
@@ -54,11 +122,11 @@ ul {
   }
 }
 .navigation ul {
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .navigation ul li a {
   font-family: "Comfortaa", cursive;
@@ -79,6 +147,12 @@ ul {
   width: 90%;
 }
 
+/*-------------------------------------------------------*/
+/*---------------------NAV RESPONSIVE--------------------*/
+/*-------------------------------------------------------*/
+/*-------------------------------------------------------*/
+/*------------------------HERO---------------------------*/
+/*-------------------------------------------------------*/
 .content, .hero {
   padding: 0px 25px;
 }
@@ -134,43 +208,9 @@ ul {
   }
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0px 0px;
-}
-@media only screen and (min-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
-}
-@media only screen and (min-width: 1248px) {
-  h1 {
-    font-size: 32px;
-    line-height: 45px;
-  }
-}
-
-p {
-  font-size: 14px;
-  line-height: 30px;
-}
-@media only screen and (min-width: 768px) {
-  p {
-    font-size: 16px;
-  }
-}
-@media only screen and (min-width: 1248px) {
-  p {
-    font-size: 18px;
-  }
-}
-
-h4 {
-  font-size: 20px;
-  text-align: right;
-}
-
+/*-------------------------------------------------------*/
+/*----------------------BUTTONS--------------------------*/
+/*-------------------------------------------------------*/
 .download {
   text-align: right;
   padding: 20px 20px;
@@ -196,6 +236,9 @@ svg {
   }
 }
 
+/*-------------------------------------------------------*/
+/*------------------------CONTENT------------------------*/
+/*-------------------------------------------------------*/
 .content {
   background-image: url("assets/content.png");
   background-position: 70%;
@@ -234,25 +277,6 @@ svg {
 @media only screen and (min-width: 1024px) {
   .text {
     margin-bottom: 0px;
-  }
-}
-.text h2 {
-  font-family: "Comfortaa", cursive;
-  font-size: 20px;
-  color: #8894C3;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-@media only screen and (min-width: 768px) {
-  .text h2 {
-    font-size: 25px;
-    margin-bottom: 25px;
-  }
-}
-@media only screen and (min-width: 1248px) {
-  .text h2 {
-    font-size: 38px;
-    margin-bottom: 30px;
   }
 }
 .text li {
@@ -315,6 +339,9 @@ svg {
   }
 }
 
+/*-------------------------------------------------------*/
+/*------------------------FOOTER-------------------------*/
+/*-------------------------------------------------------*/
 footer {
   width: 100%;
   height: auto;
