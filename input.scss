@@ -1,16 +1,49 @@
+@import url('variables.scss');
+
+$breakpoints: (
+    "phone":        300px,
+    "phone-wide":   480px,
+    "tablet-small": 640px,
+    "tablet":       768px,
+    "tablet-wide":  1024px,
+    "desktop":      1248px,
+    "desktop-wide": 1440px,
+    "desktop-super-wide": 1920px,
+) !default;
+
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+h1, h2, h4, p {
+	font-family: 'Comfortaa', cursive;
+}
+
+h1, h4, p {
+	color: #19647E;
+}
+
 body {  
 padding: 0px 0px;
 margin: 0px 0px;
-    // font-family: 'Muli', sans-serif;
 }
 
-nav {
+.full_menu {
 	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
 
 	height: 40px;
-	padding: 15px 80px; 
+	padding: 15px 15px; 
 	margin: 0px 0px;
 
 	z-index: 10;
@@ -20,6 +53,13 @@ nav {
 
 	background-color: white;
 	box-shadow: 1px 1px 14px 0px rgba(0,0,0,0.05);
+
+	@include mq('tablet'){
+		height: 40px;
+		padding: 15px 80px; 
+		margin: 0px 0px;
+	}
+
 }
 
 ul {
@@ -30,17 +70,19 @@ ul {
 }
 
 .navigation {
-	width: 40%;
+	display: none;
 
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: space-between;
+	@include mq('tablet'){
+		width: 40%;
+
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
 
 	ul{
 		width: 100%;
-
-
 
 		display: flex;
 		flex-flow: row wrap;
@@ -61,40 +103,50 @@ ul {
 }
 
 
-img {
-	width: 100%;
-}
-
 .logo {
-	width: 10%;
+	width: 30%;
+
+	@include mq('tablet-wide'){
+		width: 15%;
+	}
 
 	img {
-		width: 70%;
+		width: 90%;
 	}
 }
 
 .content, .hero {
-	padding: 0px 170px;
+	padding: 0px 25px;
+
+	@include mq('tablet'){
+		padding: 0px 80px;
+	}
+
+	@include mq('tablet-wide'){
+		padding: 0px 170px;
+	}
 }
 
-.hero, .seek, .give, .new {
+.hero {
 	height: 100vh;
 	margin: 0px 0px;
 
 	display: flex;
 	flex-flow: row wrap;
-}
-
-.hero {
 	align-items: flex-end;
 	justify-content: flex-end;
 
 	background-image: url(assets/Artboard%206.png);
 	background-size: cover;
+	background-position: right;
+
+	@include mq('tablet'){
+		background-size: center;
+	}
 }
 
 .herotext {
-	width: 30%;
+	width: 100%;
 	margin-bottom: 100px;
 
 	display: flex;
@@ -102,68 +154,263 @@ img {
 	align-items: flex-start;
 	justify-content: space-between;
 
-	font-family: 'Comfortaa', cursive;
-	color: #19647E;
-
-	h1 {
-		margin: 0px 0px;
-		font-weight: 700;
-		font-size: 40px;
+	@include mq('tablet-small'){
+		width: 65%;
 	}
 
-	p {
-		font-size: 20px;
-		line-height: 30px;
+	@include mq('tablet'){
+		width: 55%;
 	}
+
+	@include mq('tablet-wide'){
+		width: 35%;
+	}
+
+}
+
+h1 {
+	font-size: 28px;
+	font-weight: 700;
+
+	margin: 0px 0px;
+
+	@include mq('tablet'){
+		font-size: 32px;
+	}
+
+	@include mq('desktop'){
+		font-size: 32px;
+		line-height: 45px;
+	}
+}
+
+p {
+	font-size: 14px;
+	line-height: 30px;
+
+	@include mq('tablet'){
+		font-size: 16px;
+	}
+
+	@include mq('desktop'){
+		font-size: 18px;
+	}
+}
+
+h4 {
+	font-size: 20px;
+	text-align: right;
 }
 
 .download {
 	text-align: right;
-}
 
-button {
 	padding: 20px 20px;
 
-	background-color: #FEDA4D;
-
+	border: none;
 	border-radius: 100px; 
-  	border: 1px solid rgba(255,255,255,0.2);
+  	background-color: #FEDA4D;
+
+  	&:not(:last-child) {
+  		margin-right: 15px;
+  	}
 
   	&:hover{
   		background-color: #FECB05;
   	}
+  	
 }
 
-.content {
+svg {
+	width: 20px;
+	height: 20px;
 
+	@include mq('tablet-wide'){
+		width: 30px;
+		height: 30px;
+	}
+}
+
+.content{
+	background-image: url('assets/content.png');
+	background-position: 70%; 
+	background-size: cover;
 }
 
 .seek, .give, .new {
+	display: flex;
+	flex-flow: row wrap;
 	align-items: center;
 	justify-content: space-between;
+
+	height: auto;
+
+	padding: 50px 0px;
+
+	@include mq('tablet-wide'){
+		height: 80vh;
+	}
+	
+	@include mq('desktop'){
+		height: 100vh;
+		padding: 100px 0px;
+	}
 }
 
 .text {
-	width: 45%;
+	width: 100%;
+	margin-bottom: 50px;
+
+	@include mq('tablet-wide'){
+		width: 40%;
+	}
+
+	@include mq('tablet-wide'){
+		margin-bottom: 0px;
+	}
+
 
 	h2 {
 		font-family: 'Comfortaa', cursive;
-		font-size: 30px;
+		font-size: 20px;
 		color: #8894C3;
 
-		margin-bottom: 50px;
+		margin-top: 0px;
+		margin-bottom: 20px;
+
+			@include mq('tablet'){
+			font-size: 25px;
+			margin-bottom: 25px;
+			}
+
+			@include mq('desktop'){
+			font-size: 38px;
+			margin-bottom: 30px;
+			}
 	}
 
 	li {
 		font-family: 'Muli', sans-serif;
-		font-size: 20px;
+		font-size: 14px;
 		color: #404A70;
 
 		line-height: 30px;
 
 		&:not(:last-child){
-			margin-bottom: 35px;
+			margin-bottom: 10px;
 		}
 
+		@include mq('tablet'){
+			font-size: 16px;
+
+			&:not(:last-child){
+			margin-bottom: 15px;
+			}
+		}
+
+		@include mq('desktop'){
+			font-size: 18px;
+
+			&:not(:last-child){
+			margin-bottom: 20px;
+			}
+		}
+	}
+}	
+
+.mockups {
+	width: 100%;
+	text-align: center;
+
+	@include mq('tablet-wide'){
+		width: 45%;
+	}
+
+	img {
+		width: 100%; 
 	}
 }
+
+.together {
+	img {
+		width: 70%;
+	}
+}
+
+.new {
+	.mockups {
+		display: none;
+
+		@include mq('desktop'){
+			display: block;
+		}
+	}
+	p {
+		margin-bottom: 35px;
+
+		@include mq('tablet-wide'){
+			margin-bottom: 70px;
+		}
+		
+	}
+}
+
+footer {
+	width: 100%;
+	height: auto;
+
+	padding: 25px 25px;	
+
+	display: flex;
+	flex-flow: column wrap;
+	align-content: flex-start;
+	justify-content: space-around;
+
+	background-color: #19647E;
+
+	@include mq('tablet'){
+
+		height: 15vh;
+		padding:0px 0px ;
+		padding-top: 290px;
+
+		flex-flow: row wrap;	
+
+		background-image: url(assets/footer.png);
+	}
+
+	li {
+		font-family: 'Comfortaa', cursive;
+		font-size: 14px;
+		line-height: 30px;
+		color: white;	
+
+		margin-bottom: 20px;
+
+		@include mq('tablet'){
+			color: #19647E
+		}
+	}
+
+	svg {
+		fill: white;
+
+		@include mq('tablet'){
+			fill: #19647E
+		}
+	}
+}
+
+.social {
+	display: flex;
+	flex-flow: row wrap;
+	align-content: flex-start;
+	justify-content: space-between;	
+
+	li:first-child{
+		margin-right: 30px;
+	}
+}
+
+
+	
