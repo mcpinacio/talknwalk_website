@@ -1,4 +1,4 @@
 # talknwalk_website
-talknwalk promotional landing page
+Talknwalk is a mental health app, aiming at connecting therapists to their clients more efficiently.
 
-npm install typed.js
+this is its' landing page.
